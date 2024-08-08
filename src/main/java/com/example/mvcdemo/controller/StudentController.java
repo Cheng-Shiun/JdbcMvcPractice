@@ -45,7 +45,7 @@ public class StudentController {
         return studentService.count();
     }
 
-    //update POST api (更新一筆學生資料)
+    //update PUT api (更新一筆學生資料)
     //Map<String, String>: 適用於簡單的情況，當只需要更新少數幾個屬性時
     //POJO (Student): 適用於複雜的情況，當需要更新多個屬性並且希望有更好的結構和可讀性時
     @PutMapping("/students/{studentId}")
@@ -55,7 +55,7 @@ public class StudentController {
         return "執行 UPDATE sql";
     }
 
-    //update POST api (更新一批數據)
+    //update PUT api (更新一批數據)
     @PutMapping("/students/batch")
     public String updateList(@RequestBody List<Student> studentList){
         studentService.updateList(studentList);
