@@ -21,7 +21,7 @@ public class StudentDaoImpl implements StudentDao{
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Override
-    public void insert(Student student) {
+    public Integer insert(Student student) {
         String sql = "INSERT INTO student(name) VALUE (:studentName)";
 
         Map<String, Object> map = new HashMap<>();
@@ -30,6 +30,8 @@ public class StudentDaoImpl implements StudentDao{
         KeyHolder keyHolder = new GeneratedKeyHolder();  //KeyHolder interface implements GeneratedKeyHolder接住資料庫自動生成的Key -> 存放在keyHolder變數中
 
         namedParameterJdbcTemplate.update(sql, new MapSqlParameterSource(map), keyHolder);  //執行.update()更新資料庫資料，取得sql要更新key的值，並用keyHolder對應起來
+
+        return keyHolder.getKey().intValue();
     }
 
     @Override

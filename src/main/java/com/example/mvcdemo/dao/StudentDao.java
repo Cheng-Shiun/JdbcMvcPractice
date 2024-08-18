@@ -7,7 +7,7 @@ import java.util.Map;
 
 
 public interface StudentDao {
-    void insert(Student student);
+    Integer insert(Student student);
     void insertList(List<Student> studentList);
     String getById(Integer studentId);
 

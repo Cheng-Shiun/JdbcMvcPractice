@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface StudentService {
-    void insert(Student student);
+    Integer insert(Student student);
     void insertList(List<Student> studentList);
     String getById(Integer studentId);
     List<Student> getAllData();

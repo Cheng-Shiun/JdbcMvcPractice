@@ -15,8 +15,8 @@ public class StudentServiceImpl implements StudentService{
     private StudentDao studentDao;
 
     @Override
-    public void insert(Student student) {
-        studentDao.insert(student);
+    public Integer insert(Student student) {
+        return studentDao.insert(student);
     }
 
     @Override
